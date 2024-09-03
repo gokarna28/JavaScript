@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=a, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+</head>
+
+<body>
+    <!--arthmetic operation-->
+    <div>
+        <input class="border" type="text" id="firstNumber" placeholder="Enter first number">
+        <input class="border" type="text" id="secondNumber" placeholder="Enter second number">
+
+        <button onclick="sum()">
+            Add
+        </button>
+
+        <button onclick="sub()">
+            Subtract
+        </button>
+        <button onclick="mul()">
+            Multiply
+        </button>
+        <button onclick="div()">
+            Division
+        </button>
+        <button onclick="mod()">
+            Modolus
+        </button>
+        <div>
+            <input type="text" id="output">
+        </div>
+    </div>
+    <p>Click the button to print the current page</p>
+    <button onclick="print_current_page()">Print</button><br><br>
+
+
+    <!--Multiplication and Division-->
+    <div style="margin-top: 20px; border: 1px solid black; padding: 4px;">
+        <input type="number" id="num1" placeholder="Enter First number">
+        <input type="number" id="num2" placeholder="Enter Second number">
+        <div style="margin-top: 20px;">
+            <button onclick="MultiplyBy()">Multiply</button>
+            <button onclick="DivideBy()">Divide</button>
+        </div>
+        <p>Result:<br>
+            <span id="result"></span>
+        </p>
+    </div>
+
+    <!-- ignore space -->
+    <!-- <input type="number" id="UserName" placeholder="enter your name"> -->
+
+    <!-- print the current page -->
+
+
+
+    <script src="script.js">
+
+        // const userNameInput = document.getElementById('UserName');
+
+        // userNameInput.addEventListener('change', function () {
+        //     console.log('Input value changed, removing spaces.');
+        //     this.value = this.value.replace(/\s/g, '');
+        // });
+
+
+
+
+    </script>
+</body>
+
+</html>
