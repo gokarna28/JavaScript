@@ -528,3 +528,237 @@ function countVowel(str) {
 }
 console.log(countVowel("gokarna"));
 console.log(countVowel("what is this man"));
+
+//Check whether a given string contains equal number of p's and t's
+function checkPT(str) {
+  var str_p = str.replace(/[^p]/g, "");
+  var str_t = str.replace(/[^t]/g, "");
+
+  var p_sum = str_p.length;
+  var t_sum = str_t.length;
+
+  return p_sum === t_sum;
+}
+console.log(checkPT("potato"));
+console.log(checkPT("parrot"));
+console.log(checkPT("type"));
+
+//program to return the divvision of two non negative integer as string
+
+function IntString(x, y) {
+  if (y === 0) {
+    return "it is not divideable";
+  }
+  var devide = Math.abs(x) / Math.abs(y);
+  var result = devide.toLocaleString(undefined, { maximumFractionDigits: 2 });
+  return result;
+}
+console.log(IntString(20, 0));
+console.log(IntString(123545, 2));
+console.log(IntString(123545, 3));
+
+//function to sort the words in alphabelical order
+function sortString(str) {
+  str = str.split(" ");
+
+  var result = str.sort();
+
+  return result.join(" ");
+}
+console.log(sortString("ball appple"));
+console.log(sortString("mango apple"));
+
+//function to return the string to n times
+function Repeat(str, n) {
+  if (n < 0) {
+    return false;
+  } else {
+    return str.repeat(n);
+  }
+}
+console.log(Repeat("pal", 3));
+
+//take a string and make a new string using last 3 digits of string by repeating 4 times
+function NewString(str) {
+  var last = str.substring(str.length - 3);
+
+  return last.repeat(4);
+}
+console.log(NewString("dream"));
+
+//program to return the exact half of the string of even length
+function halfString(str) {
+  if (str.length % 2 === 0) {
+    return str.slice(0, str.length / 2);
+  }
+  return str;
+}
+console.log(halfString("garden"));
+console.log(halfString("dreamgarden"));
+
+//program to return new string by concartinating two string without first letter
+function FirstString(str1, str2) {
+  return str1.substring(1) + str2.substring(1);
+}
+console.log(FirstString("dream", "garden"));
+
+//make new string by adding the last 3 digits of string to front
+function lastFirst(str) {
+  if (str <= 3) {
+    return str;
+  }
+
+  return str.substring(str.length - 3) + str;
+}
+console.log(lastFirst("garden"));
+
+//return the middle three char of string of odd
+function midChar(str) {
+  if (str.length % 2 === 0) {
+    return str;
+  }
+  var mid = (str.length + 1) / 2;
+
+  return str.substring(mid - 2, mid + 1);
+}
+console.log(midChar("garden"));
+console.log(midChar("dream"));
+console.log(midChar("gokarna"));
+
+//return the concartinate two string if the length is not matched then remove the char form longer str
+function conString(str1, str2) {
+  // const m=Math.min(str1.length, str2.length)
+  // console.log(m)
+  // return(str1.substring(str1.length-m))+(str2.substring(str2.length-m))
+
+  if (str1 < str2) {
+    return str1 + str2.substring(0, str1.length);
+  } else {
+    return str1.substring(0, str2.length) + str2;
+  }
+}
+console.log(conString("dream", "garden"));
+console.log(conString("himachal", "gokarna"));
+
+//check if the str is end with script
+function checkScript(str) {
+  return str.substring(str.length - 6, str.length) === "Script";
+}
+console.log(checkScript("javaScript"));
+console.log(checkScript("server Script"));
+console.log(checkScript("clientScript"));
+console.log(checkScript("clientScripts"));
+
+//return the string if the string strat with new and los
+function NewLos(str) {
+  if (str.substring(0, 3) == "New" || str.substring(0, 3) == "Los") {
+    return str;
+  }
+  return "";
+}
+console.log(NewLos("New York"));
+console.log(NewLos("LosAngels"));
+console.log(NewLos("Angels"));
+
+//Write a JavaScript program to create a new string from a given string. This program removes the first and last characters of the string if the first or last character is 'P'. Return the original string if the condition is not satisfied.
+function checkP(str) {
+  if (str.charAt(0) == "p" || str.charAt(str.length - 1) == "p") {
+    return str.substring(1, str.length - 1);
+  }
+  return str;
+}
+console.log(checkP("poop"));
+console.log(checkP("port"));
+console.log(checkP("troop"));
+
+//return a new string using the n number of last and first character of str
+function firstLastN(str, n) {
+  var first = str.substring(0, n);
+  var last = str.substring(str.length - n);
+  return first + last;
+}
+console.log(firstLastN("gokarna", 2));
+console.log(firstLastN("gokarna", 5));
+
+function sumArray(nums) {
+  var sum = 0;
+  for (i = 0; i < nums.length; i++) {
+    sum += nums[i];
+  }
+  return sum;
+}
+console.log(sumArray([20, 33, 44, 56]));
+
+//Write a JavaScript program to check whether 1 appears in the first or last position of a given array of integers. The array length must be larger than or equal to 1.
+function checkOne(arr) {
+  return arr[0] == 1 || arr[arr.length - 1] == 1;
+}
+console.log(checkOne([2, 1, 2, 3, 4, 1, 3]));
+console.log(checkOne([2, 1, 2, 3, 4, 1]));
+console.log(checkOne([1, 2, 3, 4, 1, 3]));
+
+//return all the int of array to largest value in array
+function all_same(arr) {
+  var max_arr = arr[0] > arr[arr.length - 1] ? arr[0] : arr[arr.length - 1];
+
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = max_arr;
+  }
+  return arr;
+}
+console.log(all_same([1, 2, 3, 4, 5, 6]));
+
+//return the new array by combining middle elements of two array
+function newArray(arr1, arr2) {
+  if (arr1.length % 2 == 0 && arr2.length % 2 == 0) {
+    mid1 = arr1[arr1.length / 2];
+    mid2 = arr2[arr2.length / 2];
+    return [mid1, mid2];
+  }
+  return false;
+}
+console.log(newArray([1, 5, 4, 7, 9, 5], [2, 5, 8, 9, 7, 4]));
+
+//. Write a JavaScript program to test whether an array of integers of length 2 contains 1 or 3.
+function check(arr) {
+  var flag = false;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == 1 || arr[i] == 3) {
+      flag = true;
+    }
+  }
+  return flag;
+}
+console.log(check([3, 2, 4, 5, 6, 7]));
+console.log(check([2, 4, 5, 1, 7]));
+console.log(check([6, 2, 4, 5, 8, 7]));
+
+//Write a JavaScript program to test whether a given array of integers contains 30 or 40 twice.
+function checkTwice(array) {
+  var count = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === 30 || array[i] === 40) {
+      count++;
+    }
+  }
+  if (count === 2) {
+    return true;
+  }
+  return false;
+}
+console.log(checkTwice([40, 5, 7, 8, 4, 40]));
+console.log(checkTwice([40, 5, 7, 8, 4, 0]));
+console.log(checkTwice([30, 5, 7, 8, 4, 30]));
+
+//return the sum of the elements of integer
+function add_digit(n) {
+  var sum = 0;
+  var digit = n.toLocaleString().split("");
+  for (let i = 0; i < digit.length; i++) {
+    sum += parseInt(digit[i]);
+  }
+  return sum;
+}
+console.log(add_digit(225));
+console.log(add_digit(785));
+
