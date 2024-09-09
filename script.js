@@ -697,7 +697,7 @@ console.log(checkOne([2, 1, 2, 3, 4, 1, 3]));
 console.log(checkOne([2, 1, 2, 3, 4, 1]));
 console.log(checkOne([1, 2, 3, 4, 1, 3]));
 
-//return all the int of array to largest value in array in first and last 
+//return all the int of array to largest value in array in first and last
 function all_same(arr) {
   var max_arr = arr[0] > arr[arr.length - 1] ? arr[0] : arr[arr.length - 1];
 
@@ -764,18 +764,242 @@ console.log(add_digit(225));
 console.log(add_digit(785));
 
 //find the largest element in the array
-function largest(arr){
-  var large=arr[0];
-  for(let i=0; i<arr.length; i++){
-    if(arr[i]>large){
-    large=arr[i]
-  }
+function largest(arr) {
+  var large = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > large) {
+      large = arr[i];
+    }
   }
   return large;
 }
-console.log(largest([1,2,4,5,8]))
+console.log(largest([1, 2, 4, 5, 8]));
 
-function largeString(str){
-
+function largeString(str) {
+  var largest = str[0];
+  for (var i = 0; i < str.length; i++) {
+    if (str[i].length > largest.length) {
+      largest = str[i];
+    }
+  }
+  return largest;
 }
-console.log(largeString(['apple', 'ball', 'great']));
+console.log(largeString(["ball", "great"]));
+console.log(largeString(["ball", "great", "garden", "hello"]));
+
+const array = ["sandesh", "gokarnaChau", "bisheshLim"];
+let longLenth = [0];
+//let shortLength = [0];
+array.forEach((element, index) => {
+  if (longLenth.length < element.length) {
+    longLenth = element;
+  }
+});
+console.log(longLenth);
+
+// Write a JavaScript program to replace each character in a given string with the next in the English alphabet.
+
+function NextLetter(str) {
+  strArr = str.split("");
+  let newString = "";
+
+  for (let i = 0; i < strArr.length; i++) {
+    strCode = str[i].charCodeAt() + 1;
+    newString += String.fromCharCode(strCode);
+  }
+  return newString;
+}
+console.log(NextLetter("abc"));
+console.log(NextLetter("dream"));
+
+// Write a JavaScript program to divide a given array of positive integers into two parts. First element belongs to the first part, second element belongs to the second part, and third element belongs to the first part and so on. Now compute the sum of two parts and store it in an array of size two.
+function SumPart(arr) {
+  let newArr = [0, 0];
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2) {
+      newArr[1] += arr[i];
+    } else {
+      newArr[0] += arr[i];
+    }
+  }
+  return newArr;
+}
+console.log(SumPart([1, 2, 4, 5, 6, 7]));
+
+function MatchArray(arr1, arr2) {
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(MatchArray([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]));
+console.log(MatchArray([1, 2, 3, 4, 5], [1, 2, 3, 4, 6]));
+
+function kth_large(arr, k) {
+  let large = arr[0];
+  for (let i = 0; i < k; i++) {
+    if (arr[i] > large) {
+      large = arr[i];
+    }
+  }
+  return large;
+}
+console.log(kth_large([2, 3, 4, 6, 5], 4));
+
+//merge two string
+
+function mergeStr(str1, str2) {
+  let newStr = "";
+
+  for (let i = 0; i < str1.length && i < str2.length; i++) {
+    newStr += str1[i] + str2[i];
+  }
+  return newStr;
+}
+console.log(mergeStr("Hello", "world"));
+
+//function to sort the sentance alphabetically
+function SortSentence(str) {
+  return str.toLowerCase().split(" ").sort().join(" ");
+}
+console.log(SortSentence("This is test sentence"));
+
+const man = {
+  name: "gokarna",
+  age: 23,
+  adderess: "kalanki",
+};
+console.log(man);
+for (const [key, value] of Object.entries(man)) {
+  console.log(`${key}: ${value}`);
+}
+
+//check if two array are equivalent
+function checkArray(arr1, arr2) {
+  let arr = "";
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]) {
+        arr = true;
+      } else {
+        arr = false;
+      }
+    }
+  }
+  return arr;
+}
+console.log(checkArray([1, 2, 3, 4], [1, 2, 3, 4]));
+console.log(checkArray([1, 2, 3, 4], [1, 2, 3, 4, 5]));
+console.log(checkArray([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]));
+
+//return the elements of string to capitalized
+function CapitalLetter(str) {
+  result = "";
+  for (let i = 0; i < str.length; i++) {
+    if (/[A-Z]/.test(str[i])) {
+      result += str[i].toLowerCase();
+    } else {
+      result += str[i].toUpperCase();
+    }
+  }
+  return result;
+}
+console.log(CapitalLetter("Eng"));
+console.log(CapitalLetter("english"));
+
+function reverseSection(arr) {
+  if (arr.length % 2 !== 0) {
+    return false;
+  }
+  var part1 = arr.slice(0, arr.length / 2);
+  var part2 = arr.slice(arr.length / 2, arr.length);
+  return part2 + "," + part1;
+}
+console.log(reverseSection([1, 2, 3, 4, 5, 6]));
+console.log(reverseSection([2, 5, 4, 7, 8, 6, 5, 4, 7, 5]));
+
+//duplicate elelment in array
+function duplicateArray(arr) {
+  let newArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (newArray.indexOf(arr[i]) == -1) {
+      newArray.push(arr[i]);
+    }
+  }
+  return newArray;
+}
+console.log(duplicateArray([1, 2, 2, 3, 1, 5, 4]));
+
+//Error handling of undefined object handling
+try {
+  const undefinedObject = undefined;
+  console.log(undefinedObject.property);
+} catch (error) {
+  if (error instanceof TypeError) {
+    console.log("Error: Property access to undefined object");
+  } else {
+    throw error;
+  }
+}
+
+//handle the exception of nuimber devide if the second number is 0 then throw error
+function Divide_Error(num1, num2) {
+  if (num2 === 0) {
+    //throw new Error("Error: Undivisible");
+  }
+  return num1 / num2;
+}
+
+console.log(Divide_Error(40, 2));
+console.log(Divide_Error(40, 0));
+
+//Empty Array handling exception
+function EmptyArray(arr) {
+  if (arr.length === 0) {
+    throw new Error("array is empty");
+  }
+}
+try {
+  const result = EmptyArray([]);
+  console.log(result);
+} catch (error) {
+  console.log(error.message);
+}
+
+//Array index outof bound
+function arrOutOfBound(arr, i) {
+  try {
+    if (arr[i] == undefined) {
+      throw new Error("Error: Array index out of boud");
+    }
+    return arr;
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+console.log(arrOutOfBound([1, 2, 3, 5], 4));
+
+
+//handling multiple error 
+function MultipleError(x,y){
+  try{
+      if(typeof x !== 'number' || typeof y !== 'number'){
+       throw new TypeError('both arguments should be number')
+      }
+      if(y===0){
+        throw new Error("Invalid number. it is not divisible")
+      }
+
+      return x/y;
+  }catch(error){
+    if(error instanceof TypeError){
+      console.log('TypeError:', error.message)
+    }else{
+      console.log('Error:', error.message)
+    }
+  }
+}
+console.log(MultipleError(40,'2'))
+console.log(MultipleError(40,0))
