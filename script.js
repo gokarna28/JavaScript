@@ -697,7 +697,7 @@ console.log(checkOne([2, 1, 2, 3, 4, 1, 3]));
 console.log(checkOne([2, 1, 2, 3, 4, 1]));
 console.log(checkOne([1, 2, 3, 4, 1, 3]));
 
-//return all the int of array to largest value in array
+//return all the int of array to largest value in array in first and last 
 function all_same(arr) {
   var max_arr = arr[0] > arr[arr.length - 1] ? arr[0] : arr[arr.length - 1];
 
@@ -707,6 +707,7 @@ function all_same(arr) {
   return arr;
 }
 console.log(all_same([1, 2, 3, 4, 5, 6]));
+console.log(all_same([1, 2, 3, 4, 5, 7]));
 
 //return the new array by combining middle elements of two array
 function newArray(arr1, arr2) {
@@ -762,3 +763,19 @@ function add_digit(n) {
 console.log(add_digit(225));
 console.log(add_digit(785));
 
+//find the largest element in the array
+function largest(arr){
+  var large=arr[0];
+  for(let i=0; i<arr.length; i++){
+    if(arr[i]>large){
+    large=arr[i]
+  }
+  }
+  return large;
+}
+console.log(largest([1,2,4,5,8]))
+
+function largeString(str){
+
+}
+console.log(largeString(['apple', 'ball', 'great']));
