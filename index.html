@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=a, initial-scale=1.0">
     <title>Document</title>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <style>
+        table {
+            border: 1px solid black;
+
+            td {
+                border: 1px solid black
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -50,6 +59,79 @@
             <span id="result"></span>
         </p>
     </div>
+
+    <!-- dom maipulation for the text -->
+    <div>
+        <p id="text">This is text for DOM </p>
+        <button onclick="js_style()">Click</button>
+    </div>
+
+    <!---submit data form form and display-->
+    <div>
+        <form id="form1" onsubmit="getFormData()">
+            <input type="text" name="fname" vlaue="gokarna">
+            <input type="text" name="lname" vlaue="chaudhary">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Insert row in table -->
+    <idv>
+        <table id="myTable">
+            <tr>
+                <td>Row1 col1</td>
+                <td>Row1 col2</td>
+            </tr>
+            <tr>
+                <td>Row2 col1</td>
+                <td>Row2 col2</td>
+            </tr>
+        </table>
+        <button onclick="InsertTable()">Insert Row</button>
+    </idv>
+
+    <!--change the content of row and column-->
+    <div style="margin-top: 10px;">
+        <table id="sampleTable">
+            <tr>
+                <td>row0 col0</td>
+                <td>row0 col1</td>
+            </tr>
+            <tr>
+                <td>row1 col0</td>
+                <td>row1 col1</td>
+            </tr>
+            <tr>
+                <td>row0 col0</td>
+                <td>row0 col1</td>
+            </tr>
+        </table>
+        <button onclick="changeContent()">change the content</button>
+    </div>
+
+    <!-- //careate table using user inputs prompt -->
+    <div>
+        <table id="Mytable">
+
+        </table>
+        <button onclick="createTable()">create Table</button>
+    </div>
+    <!--remove the option form select/dropdown-->
+    <div>
+        <select id="RemoveData">
+            <option>Ram</option>
+            <option>Shyam</option>
+            <option>Hari</option>
+            <option>gokarna</option>
+            <option>pawan</option>
+        </select>
+        <button onclick="removeData()">Remove</button>
+    </div>
+
+    <!--show random image buy clicking the button-->
+    <diV>
+        <button onclick="RandomImage()">Show image</button>
+    </diV>
 
     <!-- ignore space -->
     <!-- <input type="number" id="UserName" placeholder="enter your name"> -->

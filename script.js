@@ -981,25 +981,231 @@ function arrOutOfBound(arr, i) {
 }
 console.log(arrOutOfBound([1, 2, 3, 5], 4));
 
+//handling multiple error
+function MultipleError(x, y) {
+  try {
+    if (typeof x !== "number" || typeof y !== "number") {
+      throw new TypeError("both arguments should be number");
+    }
+    if (y === 0) {
+      throw new Error("Invalid number. it is not divisible");
+    }
 
-//handling multiple error 
-function MultipleError(x,y){
-  try{
-      if(typeof x !== 'number' || typeof y !== 'number'){
-       throw new TypeError('both arguments should be number')
-      }
-      if(y===0){
-        throw new Error("Invalid number. it is not divisible")
-      }
+    return x / y;
+  } catch (error) {
+    if (error instanceof TypeError) {
+      console.log("TypeError:", error.message);
+    } else {
+      console.log("Error:", error.message);
+    }
+  } finally {
+    console.log("CleanUp code executed.");
+  }
+}
+console.log(MultipleError(40, "2"));
+console.log(MultipleError(40, 0));
 
-      return x/y;
-  }catch(error){
-    if(error instanceof TypeError){
-      console.log('TypeError:', error.message)
-    }else{
-      console.log('Error:', error.message)
+// Decode uri error
+function Decode_URI(uriString) {
+  try {
+    const DecodedURI = decodeURI(uriString);
+    return DecodedURI;
+  } catch (error) {
+    if (error instanceof URIError) {
+      console.log("URIError:", error.message);
     }
   }
 }
-console.log(MultipleError(40,'2'))
-console.log(MultipleError(40,0))
+console.log(Decode_URI("https://example.com/"));
+console.log(Decode_URI("https://example.com/%%invalidURI"));
+
+//Syntax error handling
+function JsonDataHandling(jsonString) {
+  try {
+    const parsedData = JSON.parse(jsonString);
+    return parsedData;
+  } catch (error) {
+    if (error instanceof SyntaxError) {
+      console.log("SyntaxError:", error.message);
+    }
+  }
+}
+console.log(JsonDataHandling('{"name":"gokarna", "age":22}'));
+console.log(JsonDataHandling('{"name":"gokarna", "age":22,}'));
+
+function js_style() {
+  const Text = document.getElementById("text");
+  Text.style = "color:red; font-size: 20px; font-family:Comic Sans MS";
+}
+
+//get form data
+function getFormData() {
+  var form = document.getElementById(["form1"]);
+  for (var i = 0; i < form.length; i++) {
+    if (form.elememts[i].value != "submit") {
+      console.log(form.elememts[i].value);
+    }
+  }
+}
+
+//to insert the row in tabkle
+function InsertTable() {
+  var x = document.getElementById("myTable").insertRow(0);
+  var y = x.insertCell(0);
+  var z = x.insertCell(1);
+
+  y.innerHTML = "New Cell";
+  z.innerHTML = "New Cell";
+}
+//change the content of table row and col
+function changeContent() {
+  var row = prompt("Enter the row");
+  var col = prompt("Enter the column");
+  var text = prompt("Enter the content to be changed");
+
+  var table =
+    document.getElementById("sampleTable").rows[parseInt(row, 10)].cells;
+  table[parseInt(col, 10)].innerHTML = text;
+}
+
+//create table using user inputs
+function createTable() {
+  rown = prompt("Enter the number of rows", 1);
+  coln = prompt("Enter the number of cols", 1);
+  for (var r = 0; r < parseInt(rown, 10); r++) {
+    var T = document.getElementById("Mytable").insertRow(r);
+    for (var c = 0; c < parseInt(coln, 10); c++) {
+      var y = T.insertCell(c);
+      y.innerHTML = "row" + r + "col" + c;
+    }
+  }
+}
+
+//remove the option form dropdown
+function removeData() {
+  var Data = document.getElementById("RemoveData");
+  Data.remove(Data.selectedIndex);
+}
+
+//show random image
+function RandomImage() {
+  var Images = [
+    {
+      src: "http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg",
+      width: "240",
+      height: "160",
+    },
+    {
+      src: "http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg",
+      width: "240",
+      height: "160",
+    },
+    {
+      src: "http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg",
+      width: "240",
+      height: "160",
+    },
+  ];
+  console.log(Image.length);
+  var preBuffer = [];
+
+  for (var i = 0; i < Image.length; i++) {
+    preBuffer[i] = new Image();
+    preBuffer[i].src = Image[i].src;
+    preBuffer[i].width = Image[i].width;
+    preBuffer[i].height = Image[i].height;
+  }
+
+  function getRandomInt(min, max) {
+    imn = Math.floor(Math.random() * (max - min + 1)) + min;
+    return preBuffer[imn];
+  }
+  var newImage = getRandomInt(0, preBuffer.length - 1);
+
+  var images = document.getElementsByTagName("img");
+  var l = images.length;
+  for (var p = 0; p < l; p++) {
+    images[0].parentNode.removeChild(images[0]);
+  }
+  document.body.appendChild(newImage);
+}
+
+//delete the property from object
+Object.objsize = function (Myobj) {
+  var osize = 0,
+    key;
+  for (key in Myobj) {
+    if (Myobj.hasOwnProperty(key)) osize++;
+  }
+  return osize;
+};
+var student = {
+  name: "gokarna",
+  roll: 22,
+  class: "bachelor",
+};
+console.log(student);
+delete student.class;
+console.log(student);
+var objsize = Object.objsize(student);
+console.log("size of object:" + objsize);
+
+//object operations
+function person(fname, lname, age) {
+  this.Fname = fname;
+  this.Lname = lname;
+  this.Age = age;
+}
+person.prototype.name = function () {
+  return this.Fname + " " + this.Lname;
+};
+const Man = new person("gokarna", "chaudhary", 22);
+console.log("My name is " + Man.name());
+
+var man1 = {
+  fname: "Rohan",
+  lname: "Shrestha",
+  age: 22,
+  address: "Lalitpur",
+};
+var man2 = {
+  fname: "Bishesh",
+  lname: "Limbu",
+};
+
+Object.assign(man1, man2);
+
+var data = Object.entries(man1);
+console.log(data);
+
+var fruits = {
+  banana: 200,
+  apple: 2220,
+  mango: 100,
+  lichhi: 2000,
+};
+
+let Data = "";
+for (let [name, amount] of Object.entries(fruits)) {
+  Data += name + ":" + amount + ", ";
+}
+console.log(Data);
+
+//setTimeOut
+const myTime = setTimeout(Wish, 2000);
+function Wish() {
+  //alert('hello its been 2 second');
+  console.log("hello it is call after 2sec");
+}
+
+//Write a JavaScript program to check a credit card number.
+function checkCreditCard(string) {
+  let regular = (regexp =
+    /^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$/);
+    if(regular.test(string)){
+      return 'valid';
+    }else{
+      return ' valid'
+    }
+  }
+console.log(checkCreditCard(123456789545121361))
