@@ -1202,10 +1202,27 @@ function Wish() {
 function checkCreditCard(string) {
   let regular = (regexp =
     /^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$/);
-    if(regular.test(string)){
-      return 'valid';
-    }else{
-      return ' valid'
-    }
+  if (regular.test(string)) {
+    return "valid";
+  } else {
+    return " valid";
   }
-console.log(checkCreditCard(123456789545121361))
+}
+console.log(checkCreditCard(123456789545121361));
+
+//counter
+
+let count = 0;
+
+function Count() {
+  var Data = document.getElementById("data");
+
+  count++;
+  localStorage.setItem("count", count);
+  Data.innerHTML = count;
+}
+window.onload = function () {
+  var retriveData = localStorage.getItem("count");
+  count = retriveData ? parseInt(retriveData) : 0;
+  document.getElementById("data").textContent = count;
+};

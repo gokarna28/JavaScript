@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div>
+        <div class="flex space-x-10">
+            <h2>Cart</h2>
+            <button onclick="clearCart()" class="bg-red-600 text-white">clear cart</button>
+        </div>
+        <div id="cart_items"></div>
+        <div>Total:Rs.<span id="total">0</span></div>
+    </div>
+    <div class="flex items-center space-x-10">
+        <div class="ml-20">
+            <img src="img/apple.jpg" width="100">
+            <p>Apple</p>
+            <p>Rs.50</p>
+            <button onclick="AddToCart('Apple', 50)" class="bg-blue-700 text-white">Add to Cart</button>
+        </div>
+        <div class="ml-20">
+            <img src="img/peach.jpg" width="100">
+            <p>Peach</p>
+            <p>Rs.20</p>
+            <button onclick="AddToCart('Peach', 20)" class="bg-blue-700 text-white">Add to Cart</button>
+        </div>
+        <div class="ml-20">
+            <img src="img/orange.png" width="100">
+            <p>Orange</p>
+            <p>Rs.30</p>
+            <button onclick="AddToCart('Orange', 30)" class="bg-blue-700 text-white">Add to Cart</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
